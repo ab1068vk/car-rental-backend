@@ -6,10 +6,23 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest --coverage",
+    "test:unit": "jest tests/unit --coverage",
+    "test:integration": "jest tests/integration --coverage",
+    "db:migrate": "npx prisma migrate dev",
+    "db:seed": "ts-node prisma/seed.ts",
+    "db:generate": "npx prisma generate"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "car-rental",
+    "booking",
+    "backend",
+    "typescript"
+  ],
+  "author": "Asad B",
   "license": "ISC",
   "description": "",
   "dependencies": {
