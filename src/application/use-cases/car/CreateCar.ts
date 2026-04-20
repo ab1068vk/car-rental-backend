@@ -23,7 +23,7 @@ export class CreateCar {
       make: dto.make.trim(),
       model: dto.model.trim(),
       year: dto.year,
-      category: dto.category.toLowerCase(),
+      category: dto.category,
       pricePerDay: dto.pricePerDay,
       seats: dto.seats,
       transmission: dto.transmission.toLowerCase(),
