@@ -3,7 +3,7 @@
 
 import { ICarRepository } from '../../../domain/repositories/ICarRepository';
 import { CarAvailabilityQueryDTO, CarResponseDTO } from '../../dtos/CarDTOs';
-
+import { CarFilterOptions } from '../../../domain/repositories/ICarRepository';
 export class GetAvailableCars {
   constructor(private readonly carRepository: ICarRepository) {}
 
@@ -26,10 +26,10 @@ export class GetAvailableCars {
     }
 
     //optional filters from query parameters
-    const filters = {
-      category: query.category,
-      seats: query.seats ? Number(query.seats) : undefined,
-      transmission: query.transmission,
+    const filters: CarFilterOptions = {
+        category: query.category,
+        seats: query.seats,
+        transmission: query.transmission,
     };
 
     //Query the repository for available cars

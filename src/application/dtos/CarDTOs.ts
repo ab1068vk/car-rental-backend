@@ -33,7 +33,7 @@ export interface UpdateCarDTO {
 export interface CarAvailabilityQueryDTO {
   startDate: string;   
   endDate: string;    
-  category?: string;
+  category?: CarCategory;
   seats?: number;
   transmission?: string;
 }
@@ -46,7 +46,7 @@ export interface CarResponseDTO {
   make: string;
   model: string;
   year: number;
-  category: string;
+  category: CarCategory;
   pricePerDay: number;
   seats: number;
   transmission: string;
