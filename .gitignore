@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+#Environment variables
+.env
+
+# Log files
+logs/
+*.log
+
+#Coverage reports
+coverage/
+
+dev.db
+prisma/dev.db
+prisma/dev.db-journal
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/
