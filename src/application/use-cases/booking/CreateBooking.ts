@@ -30,7 +30,7 @@ export class CreateBooking {
       carId: dto.carId,
       startDate: new Date(dto.startDate),
       endDate: new Date(dto.endDate),
-      notes: dto.notes,
+      notes: dto.notes || undefined,
       userId,
       isGuest: false,
     });
@@ -44,7 +44,7 @@ export class CreateBooking {
       carId: dto.carId,
       startDate: new Date(dto.startDate),
       endDate: new Date(dto.endDate),
-      notes: dto.notes,
+      notes: dto.notes || undefined,
       guestName: dto.guestName,
       guestEmail: dto.guestEmail,
       guestPhone: dto.guestPhone,
