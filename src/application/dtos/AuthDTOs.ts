@@ -1,5 +1,6 @@
 // src/application/dtos/AuthDTOs.ts
 //INPUT DTOs
+import { UserRole } from '@domain/entities/User';
 /** Data needed to register a new user */
 export interface RegisterUserDTO {
   email: string;
@@ -25,7 +26,7 @@ export interface UserResponseDTO {
   firstName: string;
   lastName: string;
   phone: string | null;
-  role: string;
+  role: UserRole;
   createdAt: Date;
 }
 

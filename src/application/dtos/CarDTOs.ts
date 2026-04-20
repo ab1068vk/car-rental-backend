@@ -1,5 +1,5 @@
 // src/application/dtos/CarDTOs.ts
-
+import { CarCategory } from '@domain/entities/Car';
 //INPUT DTOs
 
 /**Data needed to create a new car listing*/
@@ -7,7 +7,7 @@ export interface CreateCarDTO {
   make: string;
   model: string;
   year: number;
-  category: string;
+  category: CarCategory;
   pricePerDay: number;
   seats: number;
   transmission: string;
@@ -20,7 +20,7 @@ export interface UpdateCarDTO {
   make?: string;
   model?: string;
   year?: number;
-  category?: string;
+  category?: CarCategory;
   pricePerDay?: number;
   seats?: number;
   transmission?: string;

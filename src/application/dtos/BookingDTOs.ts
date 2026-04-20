@@ -1,5 +1,6 @@
 // src/application/dtos/BookingDTOs.ts
 //INPUT DTOs
+import { BookingStatus } from '@domain/entities/Booking';
 /** Data needed to creat booking as a registered user */
 export interface CreateBookingDTO {
   carId: string;
@@ -21,7 +22,7 @@ export interface CreateGuestBookingDTO {
 
 /**Admin action: change booking status */
 export interface UpdateBookingStatusDTO {
-  status: 'CONFIRMED' | 'DECLINED';
+  status: BookingStatus;
 }
 
 //OUTPUT DTOs
@@ -38,7 +39,7 @@ export interface BookingResponseDTO {
   startDate: Date;
   endDate: Date;
   totalPrice: number;
-  status: string;
+  status: BookingStatus;
   notes: string | null;
   createdAt: Date;
 }
