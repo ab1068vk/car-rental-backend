@@ -39,8 +39,25 @@ export class User {
   /**
    * Returns a safe version of the user so that no password is retured
    */
-  toSafeObject(): Omit<User, 'password' | 'toSafeObject'> {
-    const { password, toSafeObject, ...safeUser } = this;
-    return safeUser;
+    toSafeObject(): {
+    id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    phone: string | null;
+    role: UserRole;
+    createdAt: Date;
+    updatedAt: Date;
+  } {
+    return {
+      id: this.id,
+      email: this.email,
+      firstName: this.firstName,
+      lastName: this.lastName,
+      phone: this.phone,
+      role: this.role,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt,
+    };
   }
 }
