@@ -14,6 +14,14 @@ export class PasswordService implements IPasswordService {
    *returns A bcrypt hash that is safe to store in the database
    */
   async hash(plain: string): Promise<string> {
+    if (!plain || plain.trim().length === 0) {
+      throw new Error('Password cannot be empty');
+    }
+
+    if (plain.length < 6) {
+      throw new Error('Password must be at least 6 characters long');
+    }
+
     return bcrypt.hash(plain, this.SALT_ROUNDS);
   }
 
@@ -24,6 +32,11 @@ export class PasswordService implements IPasswordService {
    *returns true if they match, false otherwise
    */
   async compare(plain: string, hashed: string): Promise<boolean> {
+    if (!plain || plain.trim().length === 0) {
+      throw new Error('Password cannot be empty');
+    }
     return bcrypt.compare(plain, hashed);
   }
+
+  
 }
