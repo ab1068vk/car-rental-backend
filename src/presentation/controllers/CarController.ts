@@ -56,7 +56,7 @@ export class CarController {
   static async getById(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const useCase = new GetCarById(new CarRepository());
-      const car = await useCase.execute(req.params.id);
+      const car = await useCase.execute(req.params.id as string);
 
       res.status(200).json({ success: true, data: car });
     } catch (error) {
@@ -92,7 +92,7 @@ export class CarController {
   static async update(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const useCase = new UpdateCar(new CarRepository());
-      const car = await useCase.execute(req.params.id, req.body);
+      const car = await useCase.execute(req.params.id as string, req.body);
 
       logger.info(`Admin updated car: ${car.id}`);
 
@@ -113,7 +113,7 @@ export class CarController {
   static async delete(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const useCase = new DeleteCar(new CarRepository(), new BookingRepository());
-      await useCase.execute(req.params.id);
+      await useCase.execute(req.params.id as string);
 
       logger.info(`Admin deleted car: ${req.params.id}`);
 
