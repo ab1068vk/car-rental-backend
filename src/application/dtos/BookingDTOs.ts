@@ -22,7 +22,7 @@ export interface CreateGuestBookingDTO {
 
 /**Admin action: change booking status */
 export interface UpdateBookingStatusDTO {
-  status: BookingStatus;
+  status: 'CONFIRMED' | 'DECLINED';
 }
 
 //OUTPUT DTOs
@@ -43,3 +43,4 @@ export interface BookingResponseDTO {
   notes: string | null;
   createdAt: Date;
 }
+

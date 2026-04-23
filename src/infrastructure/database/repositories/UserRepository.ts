@@ -5,6 +5,7 @@
 import { IUserRepository } from '../../../domain/repositories/IUserRepository';
 import { User, UserRole } from '../../../domain/entities/User';
 import prisma from '../prismaClient';
+import { Prisma } from '@prisma/client';
 
 export class UserRepository implements IUserRepository {
   /**

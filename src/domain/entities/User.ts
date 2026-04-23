@@ -7,7 +7,7 @@ export enum UserRole {
 }
 
 /**
- * User entity — represents a registered account in the system.
+ * User entity — represents a registered account
  */
 export class User {
   constructor(

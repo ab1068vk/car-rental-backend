@@ -49,7 +49,9 @@ const logger = winston.createLogger({
 
 //In production, don't print to console 
 if (process.env.NODE_ENV === 'production') {
-  logger.remove(new winston.transports.Console());
+  logger.transports = logger.transports.filter(
+    (t) => !(t instanceof winston.transports.Console)
+  );
 }
 
 export default logger;

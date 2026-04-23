@@ -9,25 +9,10 @@ generator client {
 datasource db {
   //Using PostgreSQL as the database provider
   provider = "sqlite"
-  //url      = env("DATABASE_URL")
+  url = "file:./dev.db"
 }
 
 
-//ENUMS
-
-//regular users and admins
-enum Role {
-  USER
-  ADMIN
-}
-
-//Booking status lifecycle
-enum BookingStatus {
-  PENDING    //Newly created, waiting for admin action
-  CONFIRMED  //Admin approved
-  DECLINED   //Admin rejected
-  CANCELLED  //User cancelled
-}
 
 
 //USERS TABLE
@@ -38,7 +23,7 @@ model User {
   firstName String
   lastName  String
   phone     String?   
-  role      Role      @default(USER) //Default role is regular user
+  role      String    @default("USER")
   bookings  Booking[] //A user can have more then one booking
 
   createdAt DateTime @default(now())
@@ -98,7 +83,7 @@ model Booking {
   totalPrice Float //Calculated: pricePerDay × number of days rented
 
   //Status managed by admin
-  status BookingStatus @default(PENDING)
+  status String @default("PENDING")
 
   //Optional customer notes
   notes String?

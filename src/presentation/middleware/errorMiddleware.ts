@@ -19,11 +19,17 @@ export const errorHandler = (
   });
 
   //Determine HTTP status code based on the error message
+  // Determine HTTP status code based on the error message
   let statusCode = 500;
   const message = err.message || 'Internal server error';
 
-  if (message.includes('not found') || message.includes('Not found')) {
+  // IMPORTANT: Check specific messages first, generic ones last
+  if (message.includes('Invalid email or password')) {
+    statusCode = 401;
+  } else if (message.includes('not found') || message.includes('Not found')) {
     statusCode = 404;
+  } else if (message.includes('permission') || message.includes('Access denied')) {
+    statusCode = 403;
   } else if (
     message.includes('already exists') ||
     message.includes('Invalid') ||
